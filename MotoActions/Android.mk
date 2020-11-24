@@ -10,6 +10,7 @@ LOCAL_CERTIFICATE := platform
 LOCAL_PRIVATE_PLATFORM_APIS := true
 LOCAL_USE_AAPT2 := true
 LOCAL_SYSTEM_EXT_MODULE := true
+LOCAL_REQUIRED_MODULES := pocketmode_whitelist.xml
 
 LOCAL_STATIC_ANDROID_LIBRARIES := \
     androidx.core_core \
@@ -29,3 +30,11 @@ endif
 include frameworks/base/packages/SettingsLib/common.mk
 
 include $(BUILD_PACKAGE)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := pocketmode_whitelist.xml
+LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_RELATIVE_PATH := sysconfig
+LOCAL_SRC_FILES := $(LOCAL_MODULE)
+include $(BUILD_PREBUILT)
